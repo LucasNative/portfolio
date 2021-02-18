@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+
+:root{
+    --button-c: rgb(199, 0, 182); /*C700B6 HEX*/
+    --roxo-letras: #530168;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+html{
+    /*font-family: 'Baloo Da 2', cursive;*/
+    font-family: 'Roboto', sans-serif;
+}
+
+.hamburguer{
+    height: 2rem;
+    width: 2rem;
+    position:fixed;
+    top: 1.7rem;
+    right: 1.8rem;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.hamburguer span{
+    background-color: #C700B6;
+    color: #fff;
+    position: absolute;
+    width: 5rem;
+    height: 2.3rem;
+    right: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: lowercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: 200ms ease;
+}
+
+.hamburguer span::after{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid transparent;
+    border-left: .5rem solid var(--button-c);
+    border-bottom: .5rem solid transparent;
+    border-top: .5rem solid transparent;
+    right: -1rem;
+    
+}
+
+.show-menu .hamburguer:hover span{
+    opacity: 1;
+}
+
+.line{
+    width: 100%;
+    background-color: #fff;
+    height: .2rem;
+    box-shadow: .1rem .1rem 3px rgba(0, 0, 0, 0.527);
+    transition: transform 500ms;
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line1 {
+    transform: translate(.3rem, .4rem) rotate(45deg);
+    background-color:var(--roxo-letras);
+    box-shadow: none;
+}
+.show-menu #line3 {
+    transform: translate(.3rem, -.6rem) rotate(-45deg);
+    background-color:var(--roxo-letras);
+    box-shadow: none;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-wrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.842);
+}
+
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    animation: zoom 15s;
+}
+
+@keyframes zoom{
+    0%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.text-banner h1{
+    font-family: 'Baloo Da 2', cursive;
+    color: #fff;
+    font-size: 3.8rem;
+    font-weight: 400;
+    text-shadow: 0.4rem 0.3rem 2px rgba(0, 0, 0, 0.589);
+    opacity: 0;
+    animation: textRotate 1s 0.5s forwards;
+}
+
+.text-banner p{
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 100;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: textRotate 1s 0.7s forwards;
+}
+
+.text-banner{
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+
+.text-banner button{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    padding: 1.5rem 2.5rem;
+    background-color: var(--roxo-letras);  
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    opacity: 0;
+    transition:290ms ease-in-out 0s;
+    animation: textRotate 1s 0.9s forwards;
+    box-shadow: .3rem .3rem 5px rgba(0, 0, 0, 0.315);
+}
+
+.text-banner button:hover{
+   color: black;
+   text-decoration: underline;
+   background-color: var(--button-c);  
+   box-shadow: none;
+}
+
+@keyframes textRotate {
+    0%{
+        transform: translateY(15rem) rotateY(-35deg);
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.sidebar{
+    height: 100vh;
+    width: 22rem;
+    background-color:#fff;
+    position: fixed;
+    top: 0;
+    right: -22rem;
+    transition: all 500ms;
+}
+.show-menu .sidebar{
+   right: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    text-align: center;
+    margin-top: 1rem;
+    width: 18rem;
+}
+
+.menu-link{
+    color: var(--roxo-letras);
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    transition: 150ms ease-in 0s;
+}
+
+.menu-link:hover{
+    color: var(--button-c);
+}
+
+.social-media{
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 12rem;
+}
+
+.social-media i{
+    color: var(--roxo-letras);
+    font-size: 2.8rem;
+    transition: 150ms ease-in 0s;
+}
+
+.social-media i:hover{
+    color: var(--button-c);
+}
